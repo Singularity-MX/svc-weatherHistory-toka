@@ -1,0 +1,7 @@
+venv/
+venv-fastapi/
+__pycache__/
+*.pyc
+.env
+.git
+prueba_parcela.html

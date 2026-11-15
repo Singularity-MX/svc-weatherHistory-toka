@@ -1,0 +1,17 @@
+clima-historico:
+    build:
+      context: ./servicios/clima-historico
+      dockerfile: Dockerfile
+    container_name: fieldshift-clima-historico
+    ports:
+      - "${CLIMA_PORT:-5001}:5001"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5001
+      - NASA_POWER_URL=https://power.larc.nasa.gov/api/temporal/daily/point
+      - NASA_TIMEOUT=60
+      - DEFAULT_ANIO_INICIO=2016
+      - DEFAULT_ANIO_FIN=2025
+    restart: unless-stopped
+    networks:
+      - fieldshift-network
